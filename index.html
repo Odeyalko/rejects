@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barcode Scanner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📦 Сканер штрихкодов</h1>
+
+    <!-- Загрузка изображений -->
+    <div id="dropzone" class="dropzone">
+      Перетащите сюда фото или нажмите Ctrl+V после "Ножниц"
+    </div>
+
+    <!-- Кнопки -->
+    <div class="controls">
+      <button onclick="processImages()">🔄 Обработать</button>
+      <button onclick="resetAll()">🗑️ Сбросить</button>
+      <button onclick="toggleCamera()">
+        <img src="assets/camera.svg" alt="Камера" width="20"> Сканировать
+      </button>
+    </div>
+
+    <!-- Результаты -->
+    <div id="results" class="results"></div>
+
+    <!-- Сканер камеры -->
+    <div id="camera-container" class="camera-container hidden">
+      <video id="scanner-video" autoplay playsinline></video>
+      <div class="scanner-frame">
+        <div class="scanner-border"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ML Kit (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm/vision.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
